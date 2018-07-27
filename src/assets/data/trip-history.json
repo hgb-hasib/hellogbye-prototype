@@ -1,0 +1,369 @@
+{
+  "trips": [{
+      "date": "May 24",
+      "destination": "Geneva",
+      "price": 1233,
+      "action": "Booked"
+    },
+    {
+      "date": "May 21",
+      "destination": "Istanbul",
+      "price": 3541,
+      "action": "Searched"
+    },
+    {
+      "date": "May 19",
+      "destination": "St. Petersburg",
+      "price": 2209,
+      "action": "Searched"
+    },
+    {
+      "date": "Apr 28",
+      "destination": "Brussels",
+      "price": 3413,
+      "action": "Searched"
+    },
+    {
+      "date": "Apr 15",
+      "destination": "Malmo",
+      "price": 1544,
+      "action": "Searched"
+    },
+    {
+      "date": "Apr 9",
+      "destination": "Tbilsi",
+      "price": 2304,
+      "action": "Searched"
+    },
+    {
+      "date": "Mar 22",
+      "destination": "Lagos",
+      "price": 1950,
+      "action": "Searched"
+    },
+    {
+      "date": "Mar 16",
+      "destination": "Melbourne",
+      "price": 2400,
+      "action": "Searched"
+    },
+    {
+      "date": "Mar 16",
+      "destination": "Port of Spain",
+      "price": 1800,
+      "action": "Searched"
+    },
+    {
+      "date": "Mar 1",
+      "destination": "Cali",
+      "price": 1600,
+      "action": "Searched"
+    },
+    {
+      "date": "Feb 26",
+      "destination": "Dhaka",
+      "price": 3400,
+      "action": "Searched"
+    },
+    {
+      "date": "Feb 22",
+      "destination": "Toronto",
+      "price": 300,
+      "action": "Booked"
+    },
+    {
+      "date": "Feb 18",
+      "destination": "Toronto",
+      "price": 380,
+      "action": "Searched"
+    },
+    {
+      "date": "Feb 9",
+      "destination": "Lisbon",
+      "price": 1300,
+      "action": "Searched"
+    },
+    {
+      "date": "Feb 8",
+      "destination": "Shymkent",
+      "price": 2200,
+      "action": "Booked"
+    },
+    {
+      "date": "Feb 3",
+      "destination": "Shenzen",
+      "price": 1500,
+      "action": "Searched"
+    },
+    {
+      "date": "Feb 3",
+      "destination": "Johannesburg",
+      "price": 800,
+      "action": "Searched"
+    },
+    {
+      "date": "Feb 1",
+      "destination": "Sofia",
+      "price": 960,
+      "action": "Searched"
+    },
+    {
+      "date": "Jan 28",
+      "destination": "Davao City",
+      "price": 910,
+      "action": "Booked"
+    },
+    {
+      "date": "Jan 28",
+      "destination": "Sana'a",
+      "price": 640,
+      "action": "Searched"
+    },
+    {
+      "date": "Apr 24",
+      "destination": "Karachi",
+      "price": 1300,
+      "action": "Searched"
+    },
+    {
+      "date": "May 19",
+      "destination": "Riyadh",
+      "price": 1340,
+      "action": "Searched"
+    },
+    {
+      "date": "March 11",
+      "destination": "İzmir",
+      "price": 1500,
+      "action": "Booked"
+    },
+    {
+      "date": "June 1",
+      "destination": "Guatemala City",
+      "price": 705,
+      "action": "Searched"
+    },
+    {
+      "date": "July 8",
+      "destination": "Ho Chi Minh City",
+      "price": 1100,
+      "action": "Searched"
+    },
+    {
+      "date": "Feb 26",
+      "destination": "Vienna",
+      "price": 2110,
+      "action": "Searched"
+    },
+    {
+      "date": "Mar 11",
+      "destination": "Nizhny Novgorod",
+      "price": 1040,
+      "action": "Searched"
+    },
+    {
+      "date": "Sep 8",
+      "destination": "Osaka",
+      "price": 1505,
+      "action": "Booked"
+    },
+    {
+      "date": "Sep 7",
+      "destination": "Munich",
+      "price": 1300,
+      "action": "Searched"
+    },
+    {
+      "date": "Apr 24",
+      "destination": "Birmingham",
+      "price": 3400,
+      "action": "Searched"
+    },
+    {
+      "date": "May 18",
+      "destination": "Santiago",
+      "price": 3400,
+      "action": "Searched"
+    },
+    {
+      "date": "Oct 2",
+      "destination": "Córdoba",
+      "price": 3400,
+      "action": "Searched"
+    },
+    {
+      "date": "Jan 15",
+      "destination": "Monterrey",
+      "price": 3400,
+      "action": "Searched"
+    },
+    {
+      "date": "Feb 26",
+      "destination": "Calgary",
+      "price": 3400,
+      "action": "Searched"
+    },
+    {
+      "date": "Feb 26",
+      "destination": "Kano",
+      "price": 3400,
+      "action": "Searched"
+    },
+    {
+      "date": "Feb 26",
+      "destination": "Casablanca",
+      "price": 3400,
+      "action": "Searched"
+    },
+    {
+      "date": "Feb 26",
+      "destination": "Abuja",
+      "price": 3400,
+      "action": "Searched"
+    },
+    {
+      "date": "Feb 26",
+      "destination": "Recife",
+      "price": 3400,
+      "action": "Searched"
+    },
+    {
+      "date": "Feb 26",
+      "destination": "Montevideo",
+      "price": 3400,
+      "action": "Searched"
+    },
+    {
+      "date": "Feb 26",
+      "destination": "Addis Ababa",
+      "price": 3400,
+      "action": "Searched"
+    },
+    {
+      "date": "Feb 26",
+      "destination": "Pyongyang",
+      "price": 1100,
+      "action": "Searched"
+    },
+    {
+      "date": "Feb 26",
+      "destination": "Hanoi",
+      "price": 3400,
+      "action": "Searched"
+    },
+    {
+      "date": "Feb 26",
+      "destination": "Chittagong",
+      "price": 3400,
+      "action": "Searched"
+    },
+    {
+      "date": "Feb 26",
+      "destination": "Giza",
+      "price": 3400,
+      "action": "Searched"
+    },
+    {
+      "date": "Feb 26",
+      "destination": "Abu Dhabi",
+      "price": 3400,
+      "action": "Searched"
+    },
+    {
+      "date": "Feb 26",
+      "destination": "Medellin",
+      "price": 3400,
+      "action": "Searched"
+    },
+    {
+      "date": "Feb 26",
+      "destination": "Hyderabad",
+      "price": 3400,
+      "action": "Searched"
+    },
+    {
+      "date": "Feb 26",
+      "destination": "Lusaka",
+      "price": 3400,
+      "action": "Searched"
+    },
+    {
+      "date": "Feb 26",
+      "destination": "Novosibirsk",
+      "price": 3400,
+      "action": "Searched"
+    },
+    {
+      "date": "Feb 26",
+      "destination": "Kobe",
+      "price": 3400,
+      "action": "Searched"
+    },
+    {
+      "date": "Feb 26",
+      "destination": "Oran",
+      "price": 3400,
+      "action": "Searched"
+    },
+    {
+      "date": "Feb 26",
+      "destination": "Bangkok",
+      "price": 3400,
+      "action": "Searched"
+    },
+    {
+      "date": "Feb 26",
+      "destination": "Guayaquil",
+      "price": 3400,
+      "action": "Searched"
+    },
+    {
+      "date": "Feb 26",
+      "destination": "Cape Town",
+      "price": 3400,
+      "action": "Searched"
+    },
+    {
+      "date": "Feb 26",
+      "destination": "Maracaibo",
+      "price": 3400,
+      "action": "Searched"
+    },
+    {
+      "date": "Feb 26",
+      "destination": "Astana",
+      "price": 3400,
+      "action": "Searched"
+    },
+    {
+      "date": "Feb 26",
+      "destination": "Maputo",
+      "price": 3400,
+      "action": "Searched"
+    },
+    {
+      "date": "Feb 26",
+      "destination": "Santa Cruz de la Sierra",
+      "price": 3400,
+      "action": "Searched"
+    },
+    {
+      "date": "Feb 26",
+      "destination": "Incheon",
+      "price": 3400,
+      "action": "Searched"
+    },
+    {
+      "date": "Feb 26",
+      "destination": "Kiev",
+      "price": 3400,
+      "action": "Searched"
+    },
+    {
+      "date": "Feb 26",
+      "destination": "Sapporo",
+      "price": 3400,
+      "action": "Searched"
+    }
+  ]
+}

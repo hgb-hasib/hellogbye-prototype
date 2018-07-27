@@ -1,0 +1,31 @@
+trip-history-mini {
+  // Ref: https://codepen.io/miktemk/pen/QayWGL
+  .flex-group {
+    display: flex;
+    width: 100%;
+    padding: 6px;
+    .main-content {
+      display: flex;
+      width: 100%;
+    }
+    .lhs-addon,
+    .rhs-addon {
+      display: flex;
+    }
+  }
+  .flex-group {
+    .main-content {
+      font-size: 20px;
+      font-weight: bold;
+      opacity: 0.5;
+    }
+    .lhs-addon {
+      justify-content: flex-start;
+      min-width: 100px;
+    }
+    .rhs-addon {
+      justify-content: flex-end;
+      text-align: right;
+    }
+  }
+}
