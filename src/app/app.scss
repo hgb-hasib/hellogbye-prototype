@@ -1,6 +1,4 @@
 // http://ionicframework.com/docs/theming/
-
-
 // App Global Sass
 // --------------------------------------------------
 // Put style rules here that you want to apply globally. These
@@ -14,3 +12,28 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+::-webkit-scrollbar-track {
+  //   -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3) !important;
+  //   border-radius: 10px !important;
+  //   background-color: #F5F5F5;
+  background: white;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px !important;
+  background: #ddd;
+  visibility: hidden;
+}
+
+:hover::-webkit-scrollbar-thumb {
+  visibility: visible;
+}
+
+::-webkit-scrollbar {
+  width: 10px !important;
+  background-color: rgb(236, 236, 236) !important;
+}
+
+.scroll-content {
+  overflow-y: auto !important;
+}

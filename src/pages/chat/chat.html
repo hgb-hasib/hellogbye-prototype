@@ -2,6 +2,7 @@
   <div class="chat-box">
     <div class="message-area">
       <div class="message" *ngFor="let message of messages" [ngClass]="getClasses(message.type)">
+        <!-- <ion-spinner name="dots" duration="2000" *ngIf="getClasses(message.type)==='incoming'"></ion-spinner> -->
         <p>{{message.text}}</p>
       </div>
     </div>

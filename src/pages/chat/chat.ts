@@ -29,7 +29,6 @@ export class ChatPage {
   lastMessageId;
 
   sendMessage() {
-    console.log("send clicked");
     if (this.message !== '') {
       // Assign an id to each outgoing message. It aids in the process of differentiating between outgoing and incoming messages
       this.lastMessageId = v4();
@@ -38,18 +37,28 @@ export class ChatPage {
         text: this.message,
       };
 
-      this.http
-        .post(`http://localhost:4000/messages`, data)
-        .subscribe((res: Message) => {
-          const message = {
-            ...res,
-            // The message type is added to distinguish between incoming and outgoing messages. It also aids with styling of each message type
-            type: 'outgoing',
-          };
-          this.messages = this.messages.concat(message);
-          this.message = '';
-        });
+      // this.http
+      //   .post(`http://localhost:4000/messages`, data)
+      //   .subscribe((res: Message) => {
+      //     const message = {
+      //       ...res,
+      //       // The message type is added to distinguish between incoming and outgoing messages. It also aids with styling of each message type
+      //       type: 'outgoing',
+      //     };
+      //     this.messages = this.messages.concat(message);
+      //     this.message = '';
+      //   });
 
+      this.messages = this.messages.concat({type: 'outgoing', id: '1', text: this.message, timeStamp: new Date()});
+
+      if (this.message.toUpperCase() === 'fly me to nyc'.toUpperCase()) {
+        this.messages = this.messages.concat({type: 'incoming', id: '1', text: 'Sure! Where will you be flying from?', timeStamp: new Date()});
+      } else if (this.message.toUpperCase() === 'stay in a hotel for 3 nights in nyc'.toUpperCase()) {
+        this.messages = this.messages.concat({type: 'incoming', id: '1', text: 'Okay, let me find some options!', timeStamp: new Date()});
+      } else if (this.message.toUpperCase() === 'i am flying from toronto'.toUpperCase()) {
+        this.messages = this.messages.concat({type: 'incoming', id: '1', text: 'Okay, let me find some options!', timeStamp: new Date()});
+      }
+      this.message = '';
     }
   }
 
@@ -62,6 +71,7 @@ export class ChatPage {
   }
 
   ngOnInit() {
+    this.messages = this.messages.concat({type: 'incoming', id: '1', text: 'Hi, tell me where you would like to travel to.', timeStamp: new Date()});
   }
 
   ionViewDidLoad() {

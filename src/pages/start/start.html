@@ -1,14 +1,17 @@
-<ion-content>
+<ion-content overflow-scroll="false">
   <div class="splash-bg">
     <div class="splash-info">
       <div class="splash-intro">
         Hello,
         <p style="font-size: 14px">Where would you like to travel to?</p>
       </div>
-      <div>
-        <button ion-button round (click)="startRequest()">Start</button>
+      <div tappable class="jelly-button" (click)="startRequest()">
+        <p>Start</p>
       </div>
+      <!-- <button ion-button round (click)="startRequest()">Start</button> -->
     </div>
   </div>
-  <div class="scrollable"><trip-history-mini></trip-history-mini></div>
+  <div class="scrollable">
+    <trip-history-mini></trip-history-mini>
+  </div>
 </ion-content>

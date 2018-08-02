@@ -14,12 +14,16 @@ import { AngularFirestore } from 'angularfire2/firestore';
 import { firebaseConfig } from '../config';
 import { TripHistoryMiniComponent } from '../components/trip-history-mini/trip-history-mini'
 
+import { Config } from 'ionic-angular';
+import { SlideUpTransition } from '../page-transitions/slide-up-transition'
+import { NativePageTransitions } from '@ionic-native/native-page-transitions';
+
 @NgModule({
   declarations: [
     MyApp,
     StartPage,
     TripHistoryMiniComponent
-  ],
+  ], 
   imports: [
     BrowserModule,
     HttpClientModule,
@@ -34,8 +38,13 @@ import { TripHistoryMiniComponent } from '../components/trip-history-mini/trip-h
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler},
-    AngularFirestore
+    AngularFirestore,
+    NativePageTransitions,
+    {provide: ErrorHandler, useClass: IonicErrorHandler}, 
   ]
 })
-export class AppModule {}
+export class AppModule {
+  constructor(public config : Config) {
+    this.config.setTransition('slide-up-transition', SlideUpTransition);
+  }
+}

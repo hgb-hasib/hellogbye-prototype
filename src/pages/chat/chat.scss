@@ -16,9 +16,8 @@ page-chat {
         padding: 15px 10px;
         .message {
           p {
-            color: #8a898b;
+            color: black;
             font-size: 13px;
-            font-weight: bold;
             margin: 0px;
             max-width: 95%;
             //min-width: 55%;
@@ -34,9 +33,9 @@ page-chat {
           justify-content: flex-start;
           align-items: flex-start;
           p {
-            color: white;
+            color: black;
             border-radius: 0 11px 11px 11px;
-            background: #B9C0E9;
+            background: #E5E5EA;
           }
         }
         .message.outgoing {
@@ -45,7 +44,9 @@ page-chat {
           justify-content: flex-end;
           align-items: flex-end;
           p {
+            color: white;
             border-radius: 11px 11px 0 11px;
+            background: #2B9FFC;
           }
         }
       }
@@ -71,10 +72,8 @@ page-chat {
           width: 82%;
           border: none;
           padding: 5px 10px;
-          color: #8a898b;
+          color: black;
           font-size: 14px;
-          font-weight: bold;
-          font-family: 'Titillium Web', sans-serif;
           background: inherit;
           &:focus {
             outline: none;
@@ -83,7 +82,7 @@ page-chat {
         button {
           width: 18%;
           border: none;
-          color: #8a898b;
+          color: #2B9FFC;
           opacity: 0.9;
           display: flex;
           justify-content: center;

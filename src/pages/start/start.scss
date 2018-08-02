@@ -1,19 +1,24 @@
 page-start {
-  .scrollable {
-    height: 35%;
-    overflow-y: scroll;
-    width: 100vw;
-  }
-  .no-scroll .scroll-content{
-    overflow: hidden;
-  }
+  /* ------ Before animation ------ */
+  height: 100%;
+  /* visible */
+  -webkit-transform: translate(0, 0%);
+  -moz-transform: translate(0, 0%);
+  -ms-transform: translate(0, 0%);
+  transform: translate(0, 0%);
+  /* only transition on transform properties which are hardware accelerated = way better performances */
+  -webkit-transition: -webkit-transform 2s ease;
+  -moz-transition: -moz-transform 2s ease;
+  -ms-transition: -ms-transform 2s ease;
+  transition: transform 2s ease;
+
+  /* ------ Background ------ */
   .splash-bg {
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
-    background: url('../assets/imgs/gradiant-bg.jpg') no-repeat transparent;
-    //background-size: contain;
+    background: url('../assets/imgs/gradiant-bg.jpg') no-repeat transparent; //background-size: contain;
     height: 65%;
     z-index: 1;
     background-repeat: repeat-x;
@@ -28,6 +33,7 @@ page-start {
       background-position: 100% 0;
     }
   }
+  /* ------ Welcome message ------ */
   .splash-info {
     position: relative;
     z-index: 2;
@@ -40,42 +46,43 @@ page-start {
     margin: auto;
     color: whitesmoke;
   }
+  /* ------ Start button ------ */
+  .jelly-button {
+    background: #3498db;
+    width: 180px;
+    padding: 4px 0;
+    position: absolute;
+    left: 50%;
+    //top: 50%;
+    transform: translateX(-50%);
+    border-radius: 3px;
+    p {
+      text-align: center;
+      color: #FFF;
+      user-select: none;
+    }
+    &:hover {
+      cursor: pointer;
+    }
+    &:after {
+      content: "";
+      display: block;
+      position: absolute;
+      width: 100%;
+      height: 10%;
+      border-radius: 50%;
+      background-color: darken(#0f8bf1, 20%);
+      opacity: 0.4;
+      bottom: -30px;
+    }
+  }
+  /* ------ Trip history ------ */
+  .scrollable {
+    height: 35%;
+    overflow-y: scroll;
+    width: 100vw;
+  }
   .card {
     margin-bottom: 3px !important;
-  }
-  /* Ref: https://css-tricks.com/better-tabs-with-round-out-borders/ */
-  .tabrow {
-    text-align: center;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    line-height: 24px;
-    position: relative;
-    background-color: transparent;
-  }
-  .tabrow li {
-    border: 1px solid #AAA;
-    background: #ECECEC;
-    display: inline-block;
-    position: relative;
-    z-index: 0;
-    border-top-left-radius: 6px;
-    border-top-right-radius: 6px;
-    background: whitesmoke;
-    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.4), inset 0 1px 0 #FFF;
-    text-shadow: 0 1px #FFF;
-    margin: 0 -5px;
-    padding: 0 20px;
-  }
-  .tabrow li.pull-up-tab {
-    color: #000;
-    z-index: 2;
-    border-bottom-color: #FFF;
-  }
-  content-drawer {
-    background-color: #34495e !important;
-  }
-  content-drawer .content {
-    padding: 20px;
   }
 }

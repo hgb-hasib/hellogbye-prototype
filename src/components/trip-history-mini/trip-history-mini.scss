@@ -4,13 +4,17 @@ trip-history-mini {
     display: flex;
     width: 100%;
     padding: 6px;
+    //justify-content: space-around;
+    //align-items: stretch;
     .main-content {
       display: flex;
       width: 100%;
+      flex-grow: 2;
     }
     .lhs-addon,
     .rhs-addon {
       display: flex;
+      flex-grow: 1;
     }
   }
   .flex-group {
