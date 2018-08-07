@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
 import { HttpClient } from '@angular/common/http';
 import { v4 } from 'uuid';
 
@@ -22,11 +22,20 @@ interface Message {
 })
 export class ChatPage {
 
-  constructor(private http : HttpClient) {}
+  constructor(public navCtrl: NavController, public navParams: NavParams, private http : HttpClient, private modal : ModalController) {}
 
   messages: Array<Message> = [];
   message: string = '';
   lastMessageId;
+
+  openSettingsModal() {
+    const settingsModal = this.modal.create('TripRequestSettingsPage');
+    settingsModal.present();
+  }
+
+  openHelpModal() {
+
+  }
 
   sendMessage() {
     if (this.message !== '') {
@@ -72,6 +81,10 @@ export class ChatPage {
 
   ngOnInit() {
     this.messages = this.messages.concat({type: 'incoming', id: '1', text: 'Hi, tell me where you would like to travel to.', timeStamp: new Date()});
+  }
+
+  back() {
+    this.navCtrl.push('StartPage', null, { animation: 'slide-up-transition', direction: 'back', duration: 1000 });
   }
 
   ionViewDidLoad() {

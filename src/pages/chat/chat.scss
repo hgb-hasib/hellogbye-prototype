@@ -3,10 +3,24 @@ page-chat {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     height: 100%;
+    .chat-header {
+      width: 100%;
+      height: 10%;
+      padding: 10px 10px;
+      background: #f9fbfc;
+      .trip-title {
+        float: left;
+        font-size: 25px;
+      }
+      .chat-ctrls {
+        float: right;
+      }
+    }
     .chat-box {
       width: 100%;
-      height: 100%;
+      height: 90%;
       position: relative;
       background: #f9fbfc;
       .message-area {
@@ -20,7 +34,6 @@ page-chat {
             font-size: 13px;
             margin: 0px;
             max-width: 95%;
-            //min-width: 55%;
             box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1);
             padding: 10px 15px 10px 7px;
             margin: 5px 0;
@@ -60,9 +73,10 @@ page-chat {
     }
     .input-area {
       position: absolute;
-      bottom: 1px;
-      left: 0;
-      width: 100%;
+      border-radius: 25px;
+      //bottom: 1px;
+      //left: 0;
+      width: 95%;
       height: 50px;
       background: white;
       form {

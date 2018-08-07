@@ -6,13 +6,13 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
-import { StartPage } from '../pages/start/start';
+//import { StartPage } from '../pages/start/start';
 //import { StartPageModule } from '../pages/start/start.module'
 import { AngularFireModule } from 'angularfire2';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AngularFirestore } from 'angularfire2/firestore';
 import { firebaseConfig } from '../config';
-import { TripHistoryMiniComponent } from '../components/trip-history-mini/trip-history-mini'
+//import { TripHistoryMiniComponent } from '../components/trip-history-mini/trip-history-mini'
 
 import { Config } from 'ionic-angular';
 import { SlideUpTransition } from '../page-transitions/slide-up-transition'
@@ -21,8 +21,8 @@ import { NativePageTransitions } from '@ionic-native/native-page-transitions';
 @NgModule({
   declarations: [
     MyApp,
-    StartPage,
-    TripHistoryMiniComponent
+    //StartPage,
+    //TripHistoryMiniComponent
   ], 
   imports: [
     BrowserModule,
@@ -33,7 +33,7 @@ import { NativePageTransitions } from '@ionic-native/native-page-transitions';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    StartPage
+    //StartPage
   ],
   providers: [
     StatusBar,
@@ -44,6 +44,7 @@ import { NativePageTransitions } from '@ionic-native/native-page-transitions';
   ]
 })
 export class AppModule {
+  //rootPage:string = "StartPage";
   constructor(public config : Config) {
     this.config.setTransition('slide-up-transition', SlideUpTransition);
   }
