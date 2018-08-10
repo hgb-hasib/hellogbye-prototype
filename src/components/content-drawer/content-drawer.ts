@@ -18,7 +18,6 @@ export class ContentDrawerComponent {
   }
 
   ngAfterViewInit() {
-
     if (this.options.handleHeight) {
       this.handleHeight = this.options.handleHeight;
     }
@@ -44,7 +43,6 @@ export class ContentDrawerComponent {
     hammer.on('pan', (ev) => {
       this.handlePan(ev);
     });
-
   }
 
   handlePan(ev) {

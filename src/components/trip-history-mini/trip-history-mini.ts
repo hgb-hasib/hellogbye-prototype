@@ -1,44 +1,41 @@
 import { Component, OnInit } from '@angular/core';
-//import { Trip } from '../../models/trip'
-//import { TripHistoryProvider } from '../../providers/trip-history/trip-history';
 import { PaginatedDataProvider } from '../../providers/paginated-data/paginated-data'
 import { ToastController } from 'ionic-angular';
 
 @Component({
   selector: 'trip-history-mini',
   templateUrl: 'trip-history-mini.html',
-  //providers: [TripHistoryProvider]
   providers: [PaginatedDataProvider]
 })
 export class TripHistoryMiniComponent implements OnInit {
+  fakeTrips: Array<any> = new Array(5);
 
   constructor(private page : PaginatedDataProvider, private toastCtrl : ToastController) {
-    //private tripHistoryProvider: TripHistoryProvider) {
-    // this.tripHistoryProvider.getTripHistory()
-    //   .subscribe(result => {
-    //     this.tripHistory = result['trips'];
-    //   }
-    //   );
   }
 
   ngOnInit() {
-    this.page.init('trips', 'date', { limit: 10, reverse: false, prepend: false })
+    // Simulating network latency with a timeout
+    setTimeout(() => {
+      this.page.init('trips', 'date', { limit: 10, reverse: false, prepend: false })
+    }, 2000);
   }
 
   loadMore(infiniteScroll) {
-    // if (this.page.done) {
-    //   this.presentToast("No more trips.");
-    // }
     setTimeout(() => {
       this.page.more();
       infiniteScroll.complete();
     }, 1000);
+    this.page.done.subscribe((response) => {
+      if (response) {
+        this.presentToast("No further trips.");
+      }
+    });
   }
 
   presentToast(toastMsg) {
     let toast = this.toastCtrl.create({
         message: toastMsg,
-        duration: 1500,
+        duration: 1000,
         position: 'bottom',
         dismissOnPageChange: true
     });

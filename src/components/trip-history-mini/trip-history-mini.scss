@@ -1,11 +1,10 @@
 trip-history-mini {
-  // Ref: https://codepen.io/miktemk/pen/QayWGL
+  /* --------------- Flex group --------------- 
+     Reference: https://codepen.io/miktemk/pen/QayWGL */
   .flex-group {
     display: flex;
     width: 100%;
     padding: 6px;
-    //justify-content: space-around;
-    //align-items: stretch;
     .main-content {
       display: flex;
       width: 100%;
@@ -28,8 +27,35 @@ trip-history-mini {
       min-width: 100px;
     }
     .rhs-addon {
+      flex-direction: column;
       justify-content: flex-end;
       text-align: right;
+    }
+  }
+
+  /* --------------- Skeleton page --------------- */
+  .skeleton-trip {
+    @keyframes animatedBar {
+      0% {
+        background-position: -406px 0;
+      }
+      100% {
+        background-position: 0 0;
+      }
+    }
+    h2 {
+      background-color: lightgrey;
+      width: 70%;
+      position: relative;
+      background: linear-gradient(to right, #d4d4d4, #EEEEEE);
+      animation: animatedBar 2s linear infinite;
+    }
+    &:after {
+      content: '';
+      right: 0;
+      bottom: 0;
+      top: 0;
+      background-color: white;
     }
   }
 }

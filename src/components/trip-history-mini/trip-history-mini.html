@@ -1,5 +1,5 @@
 <ion-content>
-  <ion-list>
+  <ion-list *ngIf='page.data'>
     <button ion-item *ngFor="let trip of page.data | async">
       <div class="flex-group">
         <div class="lhs-addon">{{ trip.date }}</div>
@@ -9,13 +9,26 @@
         </div>
       </div>
     </button>
-    <p *ngIf="page.done | async">I ran out of trips!</p>
+    <!-- <p *ngIf="page.done | async">I ran out of trips!</p> -->
     <!-- <p *ngIf="page.loading | async">Loading trips..</p> -->
   </ion-list>
 
+  <ion-list *ngIf='!page.data'>
+    <button ion-item *ngFor="let trip of fakeTrips" class="skeleton-trip">
+      <div class="flex-group">
+        <div class="lhs-addon">
+          <h2></h2>
+        </div>
+        <div class="main-content">
+          <h2></h2>
+        </div>
+        <div class="rhs-addon"><h2>need</h2><h2>to fix</h2></div>
+      </div>
+    </button>
+  </ion-list>
 
-  <ion-infinite-scroll (ionInfinite)="loadMore($event)">
-      <ion-infinite-scroll-content></ion-infinite-scroll-content>
+  <ion-infinite-scroll *ngIf='page.data' (ionInfinite)="loadMore($event)">
+    <ion-infinite-scroll-content></ion-infinite-scroll-content>
     <!-- <ion-infinite-scroll-content loadingText="Loading trips.."></ion-infinite-scroll-content> -->
   </ion-infinite-scroll>
 </ion-content>
