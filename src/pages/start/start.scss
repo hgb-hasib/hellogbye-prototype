@@ -1,16 +1,19 @@
 page-start {
-  /* ------ Before animation ------ */
-  height: 100%;
-  /* visible */
-  -webkit-transform: translate(0, 0%);
-  -moz-transform: translate(0, 0%);
-  -ms-transform: translate(0, 0%);
-  transform: translate(0, 0%);
-  /* only transition on transform properties which are hardware accelerated = way better performances */
-  -webkit-transition: -webkit-transform 2s ease;
-  -moz-transition: -moz-transform 2s ease;
-  -ms-transition: -ms-transform 2s ease;
-  transition: transform 2s ease;
+  // /* ------ Before animation ------ */
+  // height: 100%;
+  // /* visible */
+  // -webkit-transform: translate(0, 0%);
+  // -moz-transform: translate(0, 0%);
+  // -ms-transform: translate(0, 0%);
+  // transform: translate(0, 0%);
+  // /* only transition on transform properties which are hardware accelerated = way better performances */
+  // -webkit-transition: -webkit-transform 2s ease;
+  // -moz-transition: -moz-transform 2s ease;
+  // -ms-transition: -ms-transform 2s ease;
+  // transition: transform 2s ease;
+  .main-content {
+    height: 100%;
+  }
 
   /* ------ Background ------ */
   .splash-bg {
