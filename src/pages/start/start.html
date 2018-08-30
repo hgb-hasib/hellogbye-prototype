@@ -1,5 +1,5 @@
 <ion-content overflow-scroll="false">
-  <div style="height: 100%" [style.margin-top.px]='main_content_top_margin' [style.transition]='content_transition'>
+  <div style="height: 100%;" (pan)="handlePan($event)" [style.margin-top.px]='main_content_top_margin' [style.transition]='content_transition'>
     <div class="main-content">
       <div class="splash-bg">
         <div class="splash-info">

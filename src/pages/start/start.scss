@@ -13,6 +13,7 @@ page-start {
   // transition: transform 2s ease;
   .main-content {
     height: 100%;
+    
   }
 
   /* ------ Background ------ */
@@ -84,6 +85,7 @@ page-start {
     height: 35%;
     overflow-y: scroll;
     width: 100vw;
+    touch-action: pan-y;
   }
   .card {
     margin-bottom: 3px !important;

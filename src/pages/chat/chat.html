@@ -1,5 +1,5 @@
 <ion-content overflow-scroll="false">
-  <div style="height: 100%" [style.margin-top.px]='main_content_top_margin' [style.transition]='content_transition'>
+  <div style="height: 100%" (pan)="handlePan($event)" [style.margin-top.px]='main_content_top_margin' [style.transition]='content_transition'>
     <skeleton-start-page></skeleton-start-page>
     <div class="main-content">
       <div class="chat-header">
@@ -20,10 +20,18 @@
         </div>
       </div>
       <div class="chat-box">
-        <div class="message-area">
+        <!-- <ion-content #messageArea overflow-scroll="true" class="message-area" (ionScrollStart)="panStartScrollArea($event)" (ionScrollEnd)="panEndScrollArea($event)">
           <div class="message" *ngFor="let message of messages" [ngClass]="getClasses(message.type)">
             <p>{{message.text}}</p>
           </div>
+          <button *ngIf="resultIsReady" ion-button round small (click)="transitionToPage()">Results</button>
+        </ion-content> -->
+        <div #messageArea class="message-area" (panstart)="panStartScrollArea($event)" (panend)="panEndScrollArea($event)">
+          <div class="message" *ngFor="let message of messages" [ngClass]="getClasses(message.type)">
+            <p>{{message.text}}</p>
+          </div>
+          <button *ngIf="resultIsReady" ion-button round small (click)="transitionToPage()">Results</button>
+          <div id="bottomOfChat"></div>
         </div>
         <div class="input-area">
           <form (submit)="sendMessage()" name="messageForm" #messageForm="ngForm">
@@ -36,6 +44,7 @@
         </div>
       </div>
     </div>
+    <skeleton-itinerary-page></skeleton-itinerary-page>
     <skeleton-loading-page></skeleton-loading-page>
   </div>
 </ion-content>

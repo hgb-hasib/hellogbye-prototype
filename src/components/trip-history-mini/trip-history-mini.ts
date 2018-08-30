@@ -17,14 +17,14 @@ export class TripHistoryMiniComponent implements OnInit {
     // Simulating network latency with a timeout
     setTimeout(() => {
       this.page.init('trips', 'date', { limit: 10, reverse: false, prepend: false })
-    }, 2000);
+    }, 500);
   }
 
   loadMore(infiniteScroll) {
     setTimeout(() => {
       this.page.more();
       infiniteScroll.complete();
-    }, 1000);
+    }, 500);
     this.page.done.subscribe((response) => {
       if (response) {
         this.presentToast("No further trips.");

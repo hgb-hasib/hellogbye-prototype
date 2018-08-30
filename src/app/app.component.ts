@@ -2,7 +2,7 @@ import { Component, ViewChild, Input, ElementRef, Renderer2  } from '@angular/co
 import { Platform, NavController, NavParams } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-
+//import { Keyboard } from '@ionic-native/keyboard';
 import { StartPage } from '../pages/start/start';
 
 @Component({
