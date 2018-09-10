@@ -1,0 +1,135 @@
+<ion-content overflow-scroll="false">
+  <div style="height: 100%;" (pan)="handlePan($event)" [style.margin-top.px]='main_content_top_margin' [style.transition]='content_transition'>
+    <skeleton-chat-page></skeleton-chat-page>
+    <div class="main-content">
+      <ion-card>
+        <ion-grid>
+          <ion-row>
+            <ion-col>
+              <ion-item>
+                <ion-avatar item-start>
+                  <img src="assets/imgs/emirates-logo.png">
+                </ion-avatar>
+                <h2>YYZ &#8594; IST</h2>
+                <p>August 22, 2018</p>
+              </ion-item>
+            </ion-col>
+            <ion-col>
+              <ion-item>
+                <div item-end text-right>
+                  <h2>$8,800</h2>
+                  <p>CAD</p>
+                </div>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>Flight</ion-col>
+            <ion-col>EK 242</ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>Operated By</ion-col>
+            <ion-col>Emirates</ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>Stops</ion-col>
+            <ion-col>Toronto - Dubai - Istanbul</ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>Fare Class By</ion-col>
+            <ion-col>Business</ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>Time</ion-col>
+            <ion-col>02:30 PM - 11:40 AM
+              <sup>+1</sup>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col center text-center>
+              <ion-note>
+                1 of 26 Flight Options
+              </ion-note>
+            </ion-col>
+            <ion-col>
+              <button ion-button icon-start clear small>
+                <ion-icon name="checkmark"></ion-icon>
+                <div>Selected</div>
+              </button>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-card>
+
+      <ion-card>
+        <ion-grid>
+          <ion-row>
+            <ion-col col-10>
+              <ion-item>
+                <ion-avatar item-start>
+                  <img src="assets/imgs/four_seasons_hotels_and_resorts.svg">
+                </ion-avatar>
+                <h2>Four Seasons Hotel Istanbul At The Bosphorus</h2>
+                <p>9 nights</p>
+              </ion-item>
+            </ion-col>
+            <ion-col col-2>
+              <ion-item>
+                <div item-end text-right>
+                  <h2>$22,437</h2>
+                  <p>CAD</p>
+                </div>
+              </ion-item>
+
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>City</ion-col>
+            <ion-col>Istanbul</ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>Check-in</ion-col>
+            <ion-col>August 22, 2018</ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>Check-out</ion-col>
+            <ion-col>August 31, 2018</ion-col>
+          </ion-row>
+        </ion-grid>
+        <img src="assets/imgs/four-seasons-hotel-istanbul-at-the-bosphorus.jpg">
+        <ion-item>
+          <div item-end text-right>
+            <button ion-button icon-start clear small>
+              <ion-icon name="checkmark"></ion-icon>
+              <div>Selected</div>
+            </button>
+            <ion-note center text-center>
+              1 of 18 Hotel Options
+            </ion-note>
+          </div>
+        </ion-item>
+      </ion-card>
+      <!-- <ion-footer>
+        <ion-toolbar>
+          <ion-row>
+            <ion-col>
+              <div>
+                <h2>$31,237 CAD</h2>
+                <p>Flight Baggage & Hotel Info</p>
+                <ion-icon name="information-circle"></ion-icon>
+              </div>
+            </ion-col>
+            <ion-col>
+              <button ion-button solid color="danger" icon-start>
+                <ion-icon name="checkmark"></ion-icon>
+                <div>Checkout</div>
+              </button>
+            </ion-col>
+
+          </ion-row>
+
+        </ion-toolbar>
+      </ion-footer> -->
+    </div>
+  </div>
+</ion-content>

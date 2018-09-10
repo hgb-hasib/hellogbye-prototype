@@ -1,0 +1,21 @@
+skeleton-start-page {
+  .main {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+  }
+  img {
+    display: block;
+    max-width: 230px;
+    max-height: 95px;
+    width: auto;
+    height: auto;
+  }
+  p {
+    font-size: 18px;
+    color: rgba(0, 0, 0, 0.466);
+  }
+}

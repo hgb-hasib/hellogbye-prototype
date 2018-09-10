@@ -1,0 +1,119 @@
+skeleton-chat-page {
+  @keyframes animatedBar {
+    0% {
+      background-position: -406px 0;
+    }
+    100% {
+      background-position: 0 0;
+    }
+  }
+  .main {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+    .chat-header {
+      width: 100%;
+      height: 10%;
+      padding: 10px 10px;
+      background: #f9fbfc;
+      .trip-title {
+        float: left;
+        font-size: 25px;
+      }
+      .chat-ctrls {
+        float: right;
+      }
+    }
+    .chat-box {
+      width: 100%;
+      height: 90%;
+      position: relative;
+      background: #f9fbfc;
+      .message-area {
+        max-height: 90%;
+        height: 90%;
+        overflow: auto;
+        padding: 15px 10px;
+        .message {
+          p {
+            margin: 0px;
+            max-width: 95%;
+            box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1);
+            padding: 10px 15px 10px 7px;
+            margin: 5px 0;
+            background: white;
+          }
+        }
+        .message.incoming {
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-start;
+          align-items: flex-start;
+          p {
+            color: black;
+            border-radius: 0 11px 11px 11px;
+            background: #E5E5EA;
+          }
+        }
+        .message.outgoing {
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-end;
+          align-items: flex-end;
+          p {
+            color: white;
+            border-radius: 11px 11px 0 11px;
+            background: #2B9FFC;
+          }
+        }
+      }
+      .emo-area {
+        position: absolute;
+        bottom: 50px;
+        left: 0;
+        width: 100%;
+        padding: 3px 10px;
+      }
+    }
+    .input-area {
+      position: absolute;
+      border-radius: 25px; //bottom: 1px;
+      //left: 0;
+      width: 95%;
+      height: 50px;
+      background: white;
+      form {
+        display: flex;
+        height: 100%;
+        ion-input {
+          width: 82%;
+          border: none;
+          padding: 5px 10px;
+          color: black;
+          font-size: 14px;
+          background: inherit;
+          &:focus {
+            outline: none;
+          }
+        }
+        button {
+          width: 18%;
+          border: none;
+          color: #2B9FFC;
+          opacity: 0.9;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          cursor: pointer;
+          background: inherit;
+          ion-icon {
+            font-size: 3rem;
+          }
+        }
+      }
+    }
+  }
+}

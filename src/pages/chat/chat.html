@@ -1,9 +1,10 @@
 <ion-content overflow-scroll="false">
-  <div style="height: 100%" (pan)="handlePan($event)" [style.margin-top.px]='main_content_top_margin' [style.transition]='content_transition'>
+  <!-- (pan)="handlePan($event)" [style.margin-top.px]='main_content_top_margin' [style.transition]='content_transition' -->
+  <div #pagesContainer (scroll)="onScroll($event)" style="height: 100%; overflow-y: auto;" [style.transition]='content_transition'>
     <skeleton-start-page></skeleton-start-page>
     <div class="main-content">
       <div class="chat-header">
-        <div class="trip-title">Trip to NYC</div>
+        <div class="trip-title"> {{ this.topPosition | number:0 }} </div>
         <div class="chat-ctrls">
           <div tappable (click)="back()" style="display: inline-block">
             <img width="35" height="35" alt="" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA%2FPjxzdmcgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDQ4IDQ4IiB3aWR0aD0iNDgiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI%2BPHBhdGggZD0iTTAgMGg0OHY0OGgtNDh6IiBmaWxsPSJub25lIi8%2BPHBhdGggZD0iTTQwIDIyaC0yNC4zNGwxMS4xNy0xMS4xNy0yLjgzLTIuODMtMTYgMTYgMTYgMTYgMi44My0yLjgzLTExLjE3LTExLjE3aDI0LjM0di00eiIvPjwvc3ZnPg%3D%3D"
@@ -26,7 +27,8 @@
           </div>
           <button *ngIf="resultIsReady" ion-button round small (click)="transitionToPage()">Results</button>
         </ion-content> -->
-        <div #messageArea class="message-area" (panstart)="panStartScrollArea($event)" (panend)="panEndScrollArea($event)">
+        <!-- (panstart)="panStartScrollArea($event)" (panend)="panEndScrollArea($event)" -->
+        <div #messageArea class="message-area">
           <div class="message" *ngFor="let message of messages" [ngClass]="getClasses(message.type)">
             <p>{{message.text}}</p>
           </div>

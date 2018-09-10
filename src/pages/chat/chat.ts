@@ -21,9 +21,12 @@ interface Message {
   templateUrl: 'chat.html',
 })
 export class ChatPage {
+  @ViewChild('pagesContainer') private pagesContainer: ElementRef;
   @ViewChild('messageArea') private messageArea: ElementRef;
   @ViewChild('bottomOfChat') private bottomOfChat: ElementRef;
-
+  topPosition: number;
+  topThresholdPercentage: number;
+  bottomThresholdPercentage: number;
   panOptions: any;
   pageCount: number;
   activePage: number;
@@ -34,9 +37,12 @@ export class ChatPage {
   private mutationObserver: MutationObserver;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private http: HttpClient, private modal: ModalController, public element: ElementRef, public renderer: Renderer2, public platform: Platform, private toastCtrl: ToastController) {
-    this.pageCount = 3;
+    this.topThresholdPercentage = 0.7;
+    this.bottomThresholdPercentage = 0.3;
+    this.topPosition = 0;
+    this.pageCount = 4;
     this.activePage = 1;
-    this.main_content_top_margin = -this.activePage * this.platform.height();
+    //this.main_content_top_margin = this.activePage * this.platform.height();
     this.content_transition = 'none';
     this.panOptions = {
       handleHeight: 20,
@@ -150,6 +156,7 @@ export class ChatPage {
     //   this.handlePanEnd(ev);
     // })
     this.messageArea.nativeElement.scrollTop = 1;
+    this.pagesContainer.nativeElement.scrollTop = this.activePage * this.platform.height();
   }
 
   back() {
@@ -178,39 +185,39 @@ export class ChatPage {
       return;
     }
     //if (this.messageArea.nativeElement.scrollTop === 0 || this.messageArea.nativeElement.scrollTop === this.messageArea.nativeElement.scrollHeight) {
-      let newTop = ev.center.y;
-      let bounceToBottom = false;
-      let bounceToTop = false;
-      if (this.panOptions.bounceBack && ev.isFinal) {
-        let topDiff = newTop - this.panOptions.thresholdFromTop;
-        let bottomDiff = (this.platform.height() - this.panOptions.thresholdFromBottom) - newTop;
-        topDiff >= bottomDiff ? bounceToBottom = true : bounceToTop = true;
-      }
+    let newTop = ev.center.y;
+    let bounceToBottom = false;
+    let bounceToTop = false;
+    if (this.panOptions.bounceBack && ev.isFinal) {
+      let topDiff = newTop - this.panOptions.thresholdFromTop;
+      let bottomDiff = (this.platform.height() - this.panOptions.thresholdFromBottom) - newTop;
+      topDiff >= bottomDiff ? bounceToBottom = true : bounceToTop = true;
+    }
 
-      if ((newTop < this.panOptions.thresholdTop && ev.additionalEvent === "panup") || bounceToTop) {
-        if (this.activePage !== this.pageCount - 1) {
-          this.activePage = this.activePage + 1;
-          this.content_transition = 'margin-top 0.5s';
-          this.main_content_top_margin = -this.activePage * this.platform.height();
-        }
-        setTimeout(() => {
-          this.viewItinerary();
-        }, 200);
-      } else if (((this.platform.height() - newTop) < this.panOptions.thresholdBottom && ev.additionalEvent === "pandown") || bounceToBottom) {
-        if (this.activePage != 0) {
-          this.activePage = this.activePage - 1;
-          this.content_transition = 'margin-top 0.5s';
-          this.main_content_top_margin = -this.activePage * this.platform.height();
-          setTimeout(() => {
-            this.backToWelcome();
-          }, 200);
-        }
-      } else {
-        this.content_transition = 'none'
-        if (newTop > 0 && newTop < (this.platform.height() - this.panOptions.handleHeight)) {
-          this.main_content_top_margin = -this.activePage * this.platform.height() + ev.deltaY;
-        }
+    if ((newTop < this.panOptions.thresholdTop && ev.additionalEvent === "panup") || bounceToTop) {
+      if (this.activePage !== this.pageCount - 1) {
+        this.activePage = this.activePage + 1;
+        this.content_transition = 'margin-top 0.5s';
+        this.main_content_top_margin = -this.activePage * this.platform.height();
       }
+      setTimeout(() => {
+        this.viewItinerary();
+      }, 200);
+    } else if (((this.platform.height() - newTop) < this.panOptions.thresholdBottom && ev.additionalEvent === "pandown") || bounceToBottom) {
+      if (this.activePage != 0) {
+        this.activePage = this.activePage - 1;
+        this.content_transition = 'margin-top 0.5s';
+        this.main_content_top_margin = -this.activePage * this.platform.height();
+        setTimeout(() => {
+          this.backToWelcome();
+        }, 200);
+      }
+    } else {
+      this.content_transition = 'none'
+      if (newTop > 0 && newTop < (this.platform.height() - this.panOptions.handleHeight)) {
+        this.main_content_top_margin = -this.activePage * this.platform.height() + ev.deltaY;
+      }
+    }
     //}
     //this.presentToast('panning page now');
 
@@ -277,12 +284,48 @@ export class ChatPage {
   }
 
   onScroll(ev) {
-    this.presentToast('scrolling');
-    if (this.messageArea.nativeElement.scrollTop === 0 || this.messageArea.nativeElement.scrollTop === this.messageArea.nativeElement.scrollHeight) {
-      this.isScrolling = false;
-    } else {
-      this.isScrolling = true;
+    this.topPosition = this.pagesContainer.nativeElement.scrollTop;
+    let topOfCurrentPage = this.activePage * this.platform.height();
+    let bottomOfCurrentPage = (this.activePage + 1) * this.platform.height();
+
+    // if scrolling up
+    if (this.topPosition < topOfCurrentPage) {
+      console.log('scrolling up');
+      // check against threshold
+      if (this.topPosition <= ((this.topThresholdPercentage) * (this.activePage * this.platform.height()))) {
+        console.log('scrolled up past threshold');
+        // go to previous page
+        this.activePage = this.activePage - 1;
+        this.content_transition = 'margin-top 0.5s';
+        //this.main_content_top_margin = this.activePage * this.platform.height();
+        this.pagesContainer.nativeElement.scrollTop = this.activePage * this.platform.height();
+      } else {
+        // bounce back
+        // this.content_transition = 'margin-top 0.5s';
+        // this.main_content_top_margin = this.activePage * this.platform.height();
+      }
+    } else if (this.topPosition > bottomOfCurrentPage) {
+      console.log('scrolling down');
+      // check against threshold
+      if (this.topPosition >= ((this.bottomThresholdPercentage) * ((this.activePage + 1) * this.platform.height()))) {
+        console.log('scrolled down past threshold');
+        // go to next page
+        this.activePage = this.activePage + 1;
+        this.content_transition = 'margin-top 0.5s';
+        //this.main_content_top_margin = this.activePage * this.platform.height();
+        this.pagesContainer.nativeElement.scrollTop = this.activePage * this.platform.height();
+      } else {
+        // bounce back
+        // this.content_transition = 'margin-top 0.5s';
+        // this.main_content_top_margin = this.activePage * this.platform.height();
+      }
     }
+    // this.presentToast('scrolling');
+    // if (this.messageArea.nativeElement.scrollTop === 0 || this.messageArea.nativeElement.scrollTop === this.messageArea.nativeElement.scrollHeight) {
+    //   this.isScrolling = false;
+    // } else {
+    //   this.isScrolling = true;
+    // }
   }
 
   onScrollEnd(ev) {
